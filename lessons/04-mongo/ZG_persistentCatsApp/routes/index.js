@@ -16,9 +16,6 @@ var home = function(req, res){
 //cats function is for the /cat route, displays the cats the user has created in order by age
 var cats = function(req, res){
 	Cat.find({}, function(err, cats){
-		// cats.sort(function(a,b){
-		// 	return a.age - b.age;
-		// });
 		var data = {cats: cats};
 		if (cats.length){
 			data['context'] = 'Your cats are below: ';
@@ -121,7 +118,6 @@ var sortAge = function(req, res){
 			res.render('list', data);
 		}).sort({age:1});
 	}
-	console.log(ageArr);
 };
 
 //all these export statements are annoying but the only other thing I've seen is exporting an object whose keys correspond 

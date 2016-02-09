@@ -1,0 +1,24 @@
+<h2> Add ingredients below </h2>
+<form id="addIngredientForm" action="postIngredient" method="POST">
+Name: <input type="text" name="name"/><br>
+Price: <input type="text" name="price"/><br>
+<input type="submit" value="Add">
+</form>
+
+<h1>Below are your ingredients:</h1>
+{{#each ingredients}}
+	{{#if this.isOutOfStock}}
+	<div id="{{this.id}}" style="color: red">
+	<h1 id="name">Ingredient: {{this.name}}</h1><h1 id="price">Price: {{this.price}}</h1>
+	<button class="outOfStock" type="button">In Stock</button>
+	<button class="Edit" type="button">Edit</button><br>
+	</div>
+	
+	{{else}}
+	<div id="{{this.id}}">
+	<h1 id="name">Ingredient: {{this.name}}</h1><h1 id="price">Price: {{this.price}}</h1>
+	<button class="outOfStock" type="button">Out of Stock</button>
+	<button class="Edit" type="button">Edit</button><br>
+	</div>
+	{{/if}}
+{{/each}}

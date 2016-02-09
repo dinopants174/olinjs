@@ -1,0 +1,19 @@
+<form id="orderForm" action="postOrder" method="POST">
+Name: <input type="text" name="name"/>
+<h3>Below are our ingredients and their prices. Check the ones you would like on your burger. If you cannot check your desired ingredient,
+we apologize for the inconvenience but we do not have that ingredient in stock.</h3>
+{{#each ingredients}}
+<div id="{{this.id}}">
+	{{#if this.isOutOfStock}}
+	  <input id="Checkbox" type="checkbox" disabled> {{this.name}}
+	  <p id="Price">{{this.price}}</p>
+	{{else}}
+	  <input id="Checkbox" type="checkbox"> {{this.name}}
+	  <p id="Price">{{this.price}}</p>
+	{{/if}}
+</div>
+{{/each}}
+<input type="submit" value="Place Order">
+</form>
+
+<h1>Price: <span id="priceCounter">0</span></h1>

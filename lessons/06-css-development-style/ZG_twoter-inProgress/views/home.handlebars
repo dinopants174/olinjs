@@ -1,0 +1,31 @@
+<div style="width: 100%">
+<h1>Twoter</h1>
+<h1 id="{{loggedIn.id}}" class="loggedInUser">Welcome {{loggedIn.name}}</h1>
+<form id="addTwoteForm" action="postTwote" method="POST">
+Twote: <input type="text" name="twoteText"/><br>
+<input type="submit" value="Post">
+</form>
+<div style="float: left; width: 80%; background-color: blue">
+	<h2>Twotes</h2>
+	<ul id="twoteFeed">
+	{{#each twotes}}
+		<li>
+		<div id="{{this.id}}">
+			<p>{{this.text}}</p>
+			<p>{{this.author.name}}</p>
+		</div>
+		</li>
+	{{/each}}
+	</ul>
+</div>
+
+<div style="float: right; width: 20%; background-color: red" id="userFeed">
+	<h2>USERS</h2>
+	<ul>
+	{{#each users}}
+		<li id="{{this.id}}">{{this.name}}</li>
+	{{/each}}
+	</ul>
+</div>
+
+</div>

@@ -1,0 +1,60 @@
+body {
+  padding-top: 70px;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+button {
+	background-color: blue;
+	color: white;
+	font-size: 14pt;
+}
+
+#postTwote{
+	margin-top: 30px;
+	font-size: 14pt;
+	border: 2px solid gray;
+	padding:25px;
+}
+
+#inputTwote{
+	margin-left: 5px;
+    text-align: left;
+    padding: 0.4em 0.4em 0.4em 0;
+    width: 87.5%;
+}
+
+#submitTwote{
+	float: right; 
+	background-color: blue; 
+	color: white;
+	margin-top: 5px;
+	font-size: 14pt;
+}
+
+ul{
+	list-style-type: none;
+	font-size: 14pt;
+	background-color: white;
+}
+
+#twoteSection{
+	float: left;
+	width: 80%; 
+	margin-top: 20px;
+}
+
+#userSection{
+	text-align: center;
+	margin-top: 20px;
+}
+
+.twote{
+	background-color: white;
+	border: 2px solid gray;
+	padding:25px;
+}
+
+.user{
+	padding:25px;
+}

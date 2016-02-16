@@ -1,0 +1,33 @@
+<div style="width: 100%">
+<h2 id="{{loggedIn.id}}" class="loggedInUser">Welcome, {{loggedIn.name}}</h2>
+<a href="/logout"><button id='logout' type='button' style="float: right; margin-top:-35px;">Logout</button></a>
+<div id="postTwote">
+<form id="addTwoteForm" action="postTwote" method="POST">
+<input type="submit"value="Post" id="submitTwote"/>
+<span>Twote: <input type="text" name="twoteText" id="inputTwote"/></span>
+</form>
+</div>
+<div id="twoteSection" style="float: left; width: 80%;">
+	<h2>Twotes</h2>
+	<ul id="twoteFeed">
+	{{#each twotes}}
+		<li id={{this.author.id}} class="twote">
+		<div id="{{this.id}}">
+			<p>{{this.text}}</p>
+			<p>{{this.author.name}}</p>
+		</div>
+		</li>
+	{{/each}}
+	</ul>
+</div>
+
+<div id="userSection" style="float: right; width: 20%">
+	<h2>Users</h2>
+	<ul>
+	{{#each users}}
+		<li id="{{this.id}}" class="user">{{this.name}}</li>
+	{{/each}}
+	</ul>
+</div>
+
+</div>

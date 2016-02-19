@@ -1,0 +1,14 @@
+<h1>Below are your pending orders.</h1>
+{{#each orders}}
+<div id="{{this.id}}">
+<h3>{{this.name}}'s Order</h3>
+<p>Price: {{this.price}}</p>
+<p>Ingredients: </p>
+<ul>
+{{#each this.ingredients}}
+<li>{{this.name}}</li>
+{{/each}}
+</ul>
+<button class="isCompleted" type="button">Order Completed</button>
+</div>
+{{/each}}

@@ -1,3 +1,5 @@
+//you probably want to separate this into multiple files. 
+
 var Ingredient = require('../models/ingredientModel.js');
 var Order = require('../models/orderModel.js');
 var mongoose = require('mongoose');
@@ -9,7 +11,7 @@ var ingredients = function(req, res){
 	//with all of the ingredients
 	Ingredient.find({}, function(err, ingredients){
 		if (err){
-			res.sendStatus(500);	//sends status to browser if error
+			res.status(500).send(err);	//sends status to browser if error
 			console.log("Error: ", err);
 		} else {
 			var data = {ingredients: ingredients};

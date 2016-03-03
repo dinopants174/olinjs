@@ -23,6 +23,7 @@ $ingredientForm.submit(function(event) {
 
   var name = $ingredientForm.find("[name='name']").val();
   var price = $ingredientForm.find("[name='price']").val();
+  //might want to check that name and price are not empty.
 
   $.post("postIngredient", {
     name: name,
@@ -33,7 +34,9 @@ $ingredientForm.submit(function(event) {
 });
 
 //runs when the user clicks the out of stock button for an ingredient
+//You can also use .click it is the same thing. 
 $("body").on("click", ".outOfStock", function(){  //had to use .on() method for dynamically added ingredients
+   //you take advantage of html classes here also, but this works. 
    var isDisabled = !($(this).html() === 'Out of Stock');  //I really want to know a better way of doing this than looking at 
    //the raw html but I looked into adding my own attributes by modifying the doctype html and I found this one easier
   if (isDisabled){  //if the ingredient was already disabled and they click the button, enable the ingredient
@@ -47,7 +50,7 @@ $("body").on("click", ".outOfStock", function(){  //had to use .on() method for 
   $.post("postStock", { //sends a post request to the server with the isDisabled boolean to determine what to set, and the id
     isDisabled: isDisabled,
     ingredientId: $(this).parent().attr("id")
-  })
+  }) //generally good to do things when the request returns, so that the user doesn't think something happened when it actually errored. 
     .done() //do nothing on client side when done, could have also had the css changes happen in on success. don't know which is best practice
     .error(onError);
 });
@@ -66,7 +69,7 @@ $("body").on("click", ".Edit", function(){
   var newName = window.prompt("Please enter the new ingredient name: ", $(this).siblings("#name").html().slice(12));
   if (newName !== ""){
     var newPrice = window.prompt("Please enter the new price for " + newName, $(this).siblings("#price").html().slice(7));
-    if (newPrice !== ""){}
+    if (newPrice !== ""){
       var ingredientId = $(this).parent().attr("id");
       $.post("postEdit", {
         newName: newName,

@@ -5,6 +5,21 @@ var Twote = require('../models/twoteModel.js');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema
 
+// Nice API structure. You can also think of outputting our API methods as part of an object you can 
+// initialize here. For instance, you can set routes = {} and then define each method as routes.home = function(req, res){...} etc.
+// As a result, instead of exporting every single method at lines 108-112, you can simply state module.exports = routes and you are done.
+// And then in your app.js you can have your callbacks be index.home etc. LMK if you have questions on that.
+
+// Also, instead of repeting this error statements when (err), you define an ErrorHandler as follows:
+// ErrorHandler method
+
+// function errorHandler(err, req, res, next) {
+//   res.status(500);
+//   res.render('error', { error: err });
+// }
+
+// This allows you simply call that everytime we don't have success.
+
 //just renders the login page
 var logIn = function(req, res){
 	res.render('login');
@@ -17,6 +32,7 @@ var home = function(req, res){
 	var userObj = req.user;
 	var dbUser = User.find({fbID: req.user.id}, function(err, user){
 		if (err){
+			// i.e. errorHandler(err, req, res);
 			res.send(err).status(500);
 			console.log("Error: ", err);
 		} else {

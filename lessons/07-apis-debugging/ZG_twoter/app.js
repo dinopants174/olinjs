@@ -69,7 +69,7 @@ app.get('/auth/facebook/callback',
                                       failureRedirect: '/login' })
 );
 
-app.listen(3000);
+app.listen(8000);
 
 //if the user is authenticated, then we can direct them to the home page, else we can go back to log in
 function ensureAuthenticated(req, res, next) {
@@ -80,6 +80,6 @@ function ensureAuthenticated(req, res, next) {
   }
 }
 
-
-
-
+// I added this because your app was not being referenced correctly
+// in /bin/www at line 16...
+module.exports = app;

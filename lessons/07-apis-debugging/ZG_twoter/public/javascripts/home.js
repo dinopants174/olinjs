@@ -49,6 +49,7 @@ $("#twoteFeed").children("#" + $(".loggedInUser").attr("id")).each(function (ind
 
 //when a twote is deleted, we use the twoteId to find the parent li tag and we remove it from the feed
 var onDeleteTwoteSuccess = function(data, status){
+  // Nice frontend removal, also good job on keeping all logs away from master/prod.
   $("#" + data.twoteId).parent().remove();
 };
 

@@ -18,6 +18,7 @@ describe('Ingredient Model', function() {
     });
   });
 
+  // how do you know a ingredient with that id exists? you might think about saving the id of the document you just created above and using that
   it('should set the isOutOfStock boolean to true', function(done) {
     Ingredient.findOneAndUpdate({'_id': "56c68f304954cb6c1b6617d2"}, {$set: {'isOutOfStock': true}}, {new: true}, function(err, ingredient){
       if (err){
@@ -38,6 +39,7 @@ describe('Ingredient Model', function() {
       done()
     });
   });
+  // You might want to test removing the ingredient you just created too
 });
 
 describe('Order Model', function() {

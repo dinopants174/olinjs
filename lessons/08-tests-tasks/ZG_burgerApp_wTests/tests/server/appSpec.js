@@ -20,6 +20,7 @@ describe("The app", function() {
       .expect('Content-Type', 'text/html; charset=utf-8', done);
   });
 
+  // Do any of your post requests respond with data? If so you might want to check that the data is what you expect
   it('should return 200 OK on POST /postIngredient', function(done) {
     request(app)
 	  .post('/postIngredient')

@@ -23,5 +23,11 @@ sortData: function(){
 		return a.age-b.age;
 	});
 }
+/*
+I don't mind the db.sortData() function, but I think I would have wrapped it into db.getAll() somehow
+instead of requiring a separate fakedatabase call before the db.getAll().
+Maybe db.getAll() could take a boolean parameter, and if it's true the data is returned sorted and if
+it's false the data is returned in the order the cats were added in?
+*/
 
 }
